@@ -1,0 +1,40 @@
+group 'com.experitest'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven {
+		url "https://cloud.experitest.com/repo/"
+	}
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+dependencies {
+//FRAMEWORK_DEPENDENCIES_START
+	compile 'org.testng:testng:6.9.10'
+	compile 'io.appium:java-client:6.1.0'
+	compile 'com.experitest:appium-seetest-extension:12.7'
+	compile 'com.experitest:repo:+'
+//FRAMEWORK_DEPENDENCIES_END
+//USER_DEPENDENCIES_START
+//USER_DEPENDENCIES_END
+}
+//TASKS_START
+task smokeTests(type: Test) {
+	useTestNG() {
+		suites './smokeTests.xml'
+	}
+}
+//TASKS_END

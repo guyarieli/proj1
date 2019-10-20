@@ -1,0 +1,10 @@
+/.gradle/
+/bin/
+/test-output/
+/gradle/
+/cloud.properties
+/gradlew
+/gradlew.bat
+/build/
+/.settings/
+/.project
